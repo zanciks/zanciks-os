@@ -6,6 +6,13 @@ start:
   mov si, hello_world 
   call print 
 
+
+; essentially all that this print: function does is call interrupts
+; we have our interrupt vector (0x10) which is for VGA video calls
+; and within that we have AH=0x0E, which is for writing a char to screen
+; we use SI and AH (first half of AX) so we need to push and then pop them
+; which means we can use this subroutine without changing those values!
+; we also use LOBSB which loads a char from SI into AL
 print:
   ; we are going to modify these, so we want to be able to restore them
   push si
