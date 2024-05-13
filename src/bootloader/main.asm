@@ -16,7 +16,7 @@ print:
     or al, al ; if char is null
     jz .done ; then jump to done
 
-    mov ah, 0x0e ; set interrupt to print char (inside of VIDEO)
+    mov ah, 0x0E ; set interrupt to print char (inside of VIDEO)
     int 0x10 ; call interrupt of type VIDEO
     jmp .loop
 
