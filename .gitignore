@@ -1,1 +1,3 @@
-resources/
+/resources
+/kernel/target
+/bootloader/target
