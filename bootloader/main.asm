@@ -10,7 +10,7 @@ halt: hlt
 
 message: db "Hello, world!", 0
 
-print: 
+print: ; prints whatever is in si via bios interrupts
     push si 
     push ax 
 
@@ -28,5 +28,5 @@ print:
     pop si
     ret
 
-times 510-($-$$) db 0 ; this along with the next two bytes put us up to 512 bytes
-dw 0AA55h ; 512 bytes for a bootloader is a requirement. 
+times 510-($-$$) db 0   ; this along with the next two bytes put us up to 512 bytes
+dw 0AA55h   ; 512 bytes for a bootloader is a requirement. These two bytes are also a requirement
